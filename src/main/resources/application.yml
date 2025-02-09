@@ -5,13 +5,16 @@ spring:
   application:
     name: foodRecord
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/foodRecord
-    username: root
-    password: hermanos16?
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/foodRecord
+    username: postgres
+    password: 260697
 
   jpa:
     hibernate:
       ddl-auto: create-drop
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true

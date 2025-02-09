@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @RestController
 @RequestMapping("/api/alimento")
 public class AlimentoController {
@@ -19,6 +21,11 @@ public class AlimentoController {
     @GetMapping("/allAlimentos")
     public ResponseEntity<?> allAlimento() {
         return ResponseEntity.ok(alimentoService.allAlimentos());
+    }
+
+    @GetMapping("/findByIngesta")
+    public ResponseEntity<?> findByIngesta(@RequestParam String ingesta, @RequestParam String fechaToma) {
+        return ResponseEntity.ok(alimentoService.findAllByIngesta(ingesta,fechaToma));
     }
 
     @PostMapping("/createAlimento")

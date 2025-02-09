@@ -4,33 +4,35 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "alimentos")
 public class AlimentoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_alimento")
     private Long idAlimento;
 
-    @Column(name = "nombre_alimento")
+    @Column(name = "nombre_alimento", nullable = false)
     private String nombreAlimento;
 
     private byte porcion;
 
-    private LocalDate FechaDeToma;
+    private String ingesta;
+
+    @Column(name = "fecha_de_toma")
+    private LocalDate fechaDeToma;
 
     @OneToMany(
-            targetEntity = SintomasEntity.class,
-            fetch = FetchType.EAGER,
-            mappedBy = "alimento",
-            cascade = CascadeType.ALL
+           // mappedBy = "alimento",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+           // orphanRemoval = true
     )
-   private List<SintomasEntity> sintomas;
+    private Set<SintomasEntity> sintomas;
 }
