@@ -1,11 +1,11 @@
 package com.sergio.foodRecord.controllers;
 
+import com.sergio.foodRecord.entities.SintomasEntity;
 import com.sergio.foodRecord.services.SintomasService.SintomasService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -21,5 +21,16 @@ public class SintomasController {
     @GetMapping("/allSintomas")
     public ResponseEntity<?> allSintomas() {
         return ResponseEntity.ok(sintomasService.allSintomas());
+    }
+
+    @GetMapping("/findByFechaSintoma")
+    public ResponseEntity<?> findByFechaSintoma () {
+        return ResponseEntity.ok(sintomasService.findByFechaSintoma());
+    }
+
+
+    @PostMapping("/createSintomas")
+    public void crearSintoma(@RequestBody SintomasEntity sintomas) {
+        sintomasService.createSintoma(sintomas);
     }
 }

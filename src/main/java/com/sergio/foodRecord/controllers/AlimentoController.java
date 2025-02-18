@@ -23,9 +23,9 @@ public class AlimentoController {
         return ResponseEntity.ok(alimentoService.allAlimentos());
     }
 
-    @GetMapping("/findByIngesta")
-    public ResponseEntity<?> findByIngesta(@RequestParam String ingesta, @RequestParam String fechaToma) {
-        return ResponseEntity.ok(alimentoService.findAllByIngesta(ingesta,fechaToma));
+    @GetMapping("/findByIngesta/{ingesta}")
+    public ResponseEntity<?> findByIngesta(@PathVariable String ingesta) {
+        return ResponseEntity.ok(alimentoService.findByFechaToma(ingesta));
     }
 
     @PostMapping("/createAlimento")

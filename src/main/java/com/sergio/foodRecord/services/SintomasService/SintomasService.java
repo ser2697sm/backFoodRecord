@@ -4,6 +4,7 @@ package com.sergio.foodRecord.services.SintomasService;
 
 import com.sergio.foodRecord.entities.SintomasEntity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface SintomasService {
@@ -12,7 +13,9 @@ public interface SintomasService {
 
     SintomasEntity findBySintomas(Long id);
 
-    void createSintoma();
+    List<SintomasEntity> findByFechaSintoma();
+
+    void createSintoma(SintomasEntity sintomas);
 
     void deleteSintoma(Long id);
 }

@@ -11,7 +11,7 @@ public interface AlimentoService {
 
     AlimentoEntity findByAlimento(Long id);
 
-    List<AlimentoEntity> findAllByIngesta(String ingesta, String fechaToma);
+    List<AlimentoEntity> findByFechaToma(String ingesta);
 
     void createAlimento(AlimentoEntity alimento);
 

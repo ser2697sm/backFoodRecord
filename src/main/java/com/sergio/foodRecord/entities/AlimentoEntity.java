@@ -21,18 +21,8 @@ public class AlimentoEntity {
     @Column(name = "nombre_alimento", nullable = false)
     private String nombreAlimento;
 
-    private byte porcion;
-
     private String ingesta;
 
     @Column(name = "fecha_de_toma")
     private LocalDate fechaDeToma;
-
-    @OneToMany(
-           // mappedBy = "alimento",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-           // orphanRemoval = true
-    )
-    private Set<SintomasEntity> sintomas;
 }

@@ -31,13 +31,6 @@ public class SintomasEntity {
     private byte estadoAnimo;
     private byte estres;
     private String otros;
-
-  //  @Column(name = "fecha_registro", nullable = false)
-  //  private LocalDate fechaRegistro;
-
-   /* @ManyToOne
-    @JoinColumn(name = "id_alimento", nullable = false)
-    private AlimentoEntity alimento;
-
-    */
+    @Column(unique = true)
+    private LocalDate fechaSintoma;
 }

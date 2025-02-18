@@ -5,9 +5,11 @@ import com.sergio.foodRecord.repositories.AlimentoRepository;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 import java.util.List;
 
@@ -31,25 +33,19 @@ public class AlimentoServiceImpl implements AlimentoService{
     }
 
     @Override
-    public List<AlimentoEntity> findAllByIngesta(String ingesta,String fechaToma) {
+    public List<AlimentoEntity> findByFechaToma(String ingesta) {
 
-        try {
-            // Usar DateTimeFormatter para analizar la cadena fechaToma
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate fechaFormateada = LocalDate.parse(fechaToma, formatter);
+        LocalDate hoy = LocalDate.now();
+        DayOfWeek primerDiaSemana = DayOfWeek.MONDAY; // Puedes cambiarlo según configuración regional
+        LocalDate inicioSemana = hoy.with(TemporalAdjusters.previousOrSame(primerDiaSemana));
+        LocalDate finSemana = inicioSemana.plusDays(6);
+        // Llamar al método del repositorio con los parámetros correctos
+        return alimentoRepository.findAllByFechaDeTomaBetween(inicioSemana,finSemana,ingesta);
 
-            // Llamar al método del repositorio con los parámetros correctos
-            return alimentoRepository.findAllByIngestaAndFechaDeToma(ingesta, fechaFormateada);
-        } catch (DateTimeParseException e) {
-            // Manejar la excepción si el formato de fecha no es correcto
-            throw new IllegalArgumentException("Formato de fecha incorrecto: " + fechaToma, e);
-        }
     }
 
     @Override
     public void createAlimento(AlimentoEntity alimento) {
-
-
 
         if(alimento.getFechaDeToma() == null) {
             alimento.setFechaDeToma(LocalDate.now());

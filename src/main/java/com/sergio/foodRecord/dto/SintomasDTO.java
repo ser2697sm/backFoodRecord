@@ -1,12 +1,12 @@
 package com.sergio.foodRecord.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class SintomasDTO {
     private byte dolorAbdominal;
     private byte distensionyGases;
