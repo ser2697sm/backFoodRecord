@@ -1,25 +1,26 @@
 package com.sergio.foodRecord.services.AlimentosService;
 
+import com.sergio.foodRecord.dto.AlimentoDTO;
 import com.sergio.foodRecord.entities.AlimentoEntity;
+import com.sergio.foodRecord.mappers.alimento.AlimentoMapper;
 import com.sergio.foodRecord.repositories.AlimentoRepository;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.time.temporal.TemporalAdjusters;
-import java.util.Date;
 import java.util.List;
 
 @Service
 public class AlimentoServiceImpl implements AlimentoService{
 
     private final AlimentoRepository alimentoRepository;
+    private final AlimentoMapper alimentoMapper;
 
-    public AlimentoServiceImpl(AlimentoRepository alimentoRepository) {
+
+    public AlimentoServiceImpl(AlimentoRepository alimentoRepository, AlimentoMapper alimentoMapper) {
         this.alimentoRepository = alimentoRepository;
+        this.alimentoMapper = alimentoMapper;
     }
 
     @Override
@@ -33,7 +34,7 @@ public class AlimentoServiceImpl implements AlimentoService{
     }
 
     @Override
-    public List<AlimentoEntity> findByFechaToma(String ingesta) {
+    public List<AlimentoDTO> findByFechaToma(String ingesta) {
 
         LocalDate hoy = LocalDate.now();
         DayOfWeek primerDiaSemana = DayOfWeek.MONDAY; // Puedes cambiarlo según configuración regional
@@ -44,13 +45,14 @@ public class AlimentoServiceImpl implements AlimentoService{
 
     }
 
+
     @Override
-    public void createAlimento(AlimentoEntity alimento) {
+    public void createAlimento(AlimentoDTO alimento) {
 
         if(alimento.getFechaDeToma() == null) {
             alimento.setFechaDeToma(LocalDate.now());
         }
-        alimentoRepository.save(alimento);
+        alimentoRepository.save(this.alimentoMapper.mapToAlimentoEntity(alimento));
     }
 
     @Override

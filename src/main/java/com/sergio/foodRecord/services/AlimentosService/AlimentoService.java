@@ -1,6 +1,7 @@
 package com.sergio.foodRecord.services.AlimentosService;
 
 
+import com.sergio.foodRecord.dto.AlimentoDTO;
 import com.sergio.foodRecord.entities.AlimentoEntity;
 
 import java.time.LocalDate;
@@ -11,9 +12,9 @@ public interface AlimentoService {
 
     AlimentoEntity findByAlimento(Long id);
 
-    List<AlimentoEntity> findByFechaToma(String ingesta);
+    List<AlimentoDTO> findByFechaToma(String ingesta);
 
-    void createAlimento(AlimentoEntity alimento);
+    void createAlimento(AlimentoDTO alimento);
 
     void deleteAlimento(Long id);
 }

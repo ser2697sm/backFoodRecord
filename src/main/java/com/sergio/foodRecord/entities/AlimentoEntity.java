@@ -8,6 +8,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "alimentos")

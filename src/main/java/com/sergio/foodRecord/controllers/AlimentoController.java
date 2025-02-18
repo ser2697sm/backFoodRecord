@@ -1,5 +1,6 @@
 package com.sergio.foodRecord.controllers;
 
+import com.sergio.foodRecord.dto.AlimentoDTO;
 import com.sergio.foodRecord.entities.AlimentoEntity;
 import com.sergio.foodRecord.services.AlimentosService.AlimentoService;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class AlimentoController {
     }
 
     @PostMapping("/createAlimento")
-    public void crearAlimento(@RequestBody AlimentoEntity alimento) {
+    public void crearAlimento(@RequestBody AlimentoDTO alimento) {
        alimentoService.createAlimento(alimento);
     }
 }

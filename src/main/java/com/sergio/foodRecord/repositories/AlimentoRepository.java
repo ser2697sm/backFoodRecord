@@ -1,5 +1,6 @@
 package com.sergio.foodRecord.repositories;
 
+import com.sergio.foodRecord.dto.AlimentoDTO;
 import com.sergio.foodRecord.entities.AlimentoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,7 +16,7 @@ public interface AlimentoRepository extends JpaRepository<AlimentoEntity,Long> {
     AlimentoEntity findAlimentoByIngesta(@Param("ingesta") String ingesta);
      */
     @Query("Select a from AlimentoEntity a where a.fechaDeToma BETWEEN :inicio AND :fin AND a.ingesta IN :ingesta")
-    List<AlimentoEntity> findAllByFechaDeTomaBetween(@Param("inicio") LocalDate inicio,
-                                                     @Param("fin") LocalDate fin,
-                                                     @Param("ingesta") String ingesta);
+    List<AlimentoDTO> findAllByFechaDeTomaBetween(@Param("inicio") LocalDate inicio,
+                                                  @Param("fin") LocalDate fin,
+                                                  @Param("ingesta") String ingesta);
 }

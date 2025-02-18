@@ -10,7 +10,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class AlimentoDTO {
+    private Long id;
     private String nombreAlimento;
-    private byte porcion;
+    private String ingesta;
     private LocalDate fechaDeToma;
 }
