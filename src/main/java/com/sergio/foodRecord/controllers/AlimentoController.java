@@ -26,7 +26,7 @@ public class AlimentoController {
 
     @GetMapping("/findByIngesta/{ingesta}")
     public ResponseEntity<?> findByIngesta(@PathVariable String ingesta) {
-        return ResponseEntity.ok(alimentoService.findByFechaToma(ingesta));
+        return ResponseEntity.ok(alimentoService.findAllByFechaDeTomaBetween(ingesta));
     }
 
     @PostMapping("/createAlimento")

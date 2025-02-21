@@ -16,7 +16,7 @@ public interface AlimentoRepository extends JpaRepository<AlimentoEntity,Long> {
     AlimentoEntity findAlimentoByIngesta(@Param("ingesta") String ingesta);
      */
     @Query("Select a from AlimentoEntity a where a.fechaDeToma BETWEEN :inicio AND :fin AND a.ingesta IN :ingesta")
-    List<AlimentoDTO> findAllByFechaDeTomaBetween(@Param("inicio") LocalDate inicio,
+    List<AlimentoEntity> findAllByFechaDeTomaBetween(@Param("inicio") LocalDate inicio,
                                                   @Param("fin") LocalDate fin,
                                                   @Param("ingesta") String ingesta);
 }

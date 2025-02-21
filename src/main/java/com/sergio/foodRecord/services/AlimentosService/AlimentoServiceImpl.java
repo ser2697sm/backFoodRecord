@@ -29,12 +29,7 @@ public class AlimentoServiceImpl implements AlimentoService{
     }
 
     @Override
-    public AlimentoEntity findByAlimento(Long id) {
-        return null;
-    }
-
-    @Override
-    public List<AlimentoDTO> findByFechaToma(String ingesta) {
+    public List<AlimentoEntity> findAllByFechaDeTomaBetween(String ingesta) {
 
         LocalDate hoy = LocalDate.now();
         DayOfWeek primerDiaSemana = DayOfWeek.MONDAY; // Puedes cambiarlo según configuración regional
@@ -52,7 +47,8 @@ public class AlimentoServiceImpl implements AlimentoService{
         if(alimento.getFechaDeToma() == null) {
             alimento.setFechaDeToma(LocalDate.now());
         }
-        alimentoRepository.save(this.alimentoMapper.mapToAlimentoEntity(alimento));
+
+        alimentoRepository.save(alimentoMapper.toAlimento(alimento));
     }
 
     @Override

@@ -19,10 +19,10 @@ public class AlimentoEntity {
     @Column(name = "id_alimento")
     private Long idAlimento;
 
+    private String ingesta;
+
     @Column(name = "nombre_alimento", nullable = false)
     private String nombreAlimento;
-
-    private String ingesta;
 
     @Column(name = "fecha_de_toma")
     private LocalDate fechaDeToma;

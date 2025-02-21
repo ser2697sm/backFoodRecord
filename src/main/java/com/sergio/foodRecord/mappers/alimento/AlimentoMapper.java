@@ -11,6 +11,8 @@ public interface AlimentoMapper {
 
     AlimentoDTO toAlimentoDTO(AlimentoEntity alimento);
 
+
+
     List<AlimentoDTO> toAlimentosDtos(List<AlimentoEntity> alimentoEntities);
 
     void updateAlimento(AlimentoEntity alimento,AlimentoDTO alimentoDTO);
