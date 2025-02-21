@@ -6,8 +6,8 @@ spring:
     name: foodRecord
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/foodRecord
-    username: root
+    url: jdbc:mysql://mysql_database:3306/foodRecord
+    username: sergio
     password: hermanos16?
 
   jpa:
