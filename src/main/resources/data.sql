@@ -1,17 +1,1 @@
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (1,'desayuno','100 gramos de leche, 50 de colacao 1 cucharada de azucar','2025-02-17')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (2,'Media mañana','1 tostada con aceite y jamon','2025-02-17')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (3,'Comida','70 de pasta','2025-02-17')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (4,'Merienda','1 platano 1 fresa 25g de proteina en polvo','2025-02-17')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (5,'Cena','1 yogurt y chia','2025-02-17')
 
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (6,'desayuno','100 gramos de leche, 50 de colacao 1 cucharada de azucar','2025-02-18')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (7,'Media mañana','1 tostada con aceite y jamon','2025-02-18')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (8,'Comida','70 de pasta','2025-02-18')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (9,'Merienda','1 platano 1 fresa 25g de proteina en polvo','2025-02-18')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (10,'Cena','1 yogurt y chia','2025-02-18')
-
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (11,'desayuno','100 gramos de leche, 50 de colacao 1 cucharada de azucar','2025-02-19')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (12,'Media mañana','1 tostada con aceite y jamon','2025-02-19')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (13,'Comida','70 de pasta','2025-02-19')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (14,'Merienda','1 platano 1 fresa 25g de proteina en polvo','2025-02-19')
-INSERT INTO alimentos (id_alimento,ingesta,nombre_alimento,fecha_de_toma) VALUES (15,'Cena','1 yogurt y chia','2025-02-19')
